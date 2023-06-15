@@ -13,8 +13,8 @@ use App\Http\Controllers\ComicController as ComicController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::resource('/', ComicController::class);
+Route::resource('/comics', ComicController::class);

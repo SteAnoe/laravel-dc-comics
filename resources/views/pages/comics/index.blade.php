@@ -23,7 +23,8 @@
                 @foreach ($comics as $comic)
                 <div class="carta">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{$comic->thumb}}" class="card-img-top" alt="...">
+                        <a href="{{route('comics.show', ['comic' => $comic->id])}}"><img src="{{$comic->thumb}}" class="card-img-top" alt="..."></a>
+                        
                         <div class="card-body">
                             <h5 class="card-title">{{$comic->series}}</h5>
                             <p class="card-text">{{$comic->description}}</p>
@@ -31,6 +32,13 @@
                             <div>{{$comic->type}}</div>
                             <div>{{$comic->writers}}</div>
                             <div>{{$comic->artists}}</div>
+                            <a href="{{route('comics.edit', $comic)}}">modifica</a>
+                            <form action="{{ route('comics.destroy', $comic)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">elimina</button>
+                            </form>
+                            
                         </div>
                     </div>
                 </div>

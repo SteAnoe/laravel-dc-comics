@@ -18,17 +18,17 @@ class ComicSeeder extends Seeder
         $comic = config('comics.comic');
 
         foreach ($comic as $elem){
-            $newcomic = new Comic();
-            $newcomic->title = $elem['title'];
-            $newcomic->description = $elem['description'];
-            $newcomic->thumb = $elem['thumb'];
-            $newcomic->price = $elem['price'];
-            $newcomic->series = $elem['series'];
-            $newcomic->sale_date = $elem['sale_date'];
-            $newcomic->type = $elem['type'];
-            $newcomic->artists = json_encode($elem['artists']);
-            $newcomic->writers = json_encode($elem['writers']);
-            $newcomic->save();
+            $newComic = new Comic();
+            $newComic->title = $elem['title'];
+            $newComic->description = $elem['description'];
+            $newComic->thumb = $elem['thumb'];
+            $newComic->price = $elem['price'];
+            $newComic->series = $elem['series'];
+            $newComic->sale_date = $elem['sale_date'];
+            $newComic->type = $elem['type'];
+            $newComic->artists = json_encode($elem['artists']);
+            $newComic->writers = json_encode($elem['writers']);
+            $newComic->save();
 
         }
     }
