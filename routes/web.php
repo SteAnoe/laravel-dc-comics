@@ -14,7 +14,11 @@ use App\Http\Controllers\ComicController as ComicController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $menu = config('menulinks.menuLinks');
+    $footermenu = config('footerLinks.aboutList');
+    $menushop = config('menuShop.menuShop');
+    
+    return view('welcome', compact( 'menu' , 'footermenu' , 'menushop'));
 });
 
 Route::resource('/comics', ComicController::class);

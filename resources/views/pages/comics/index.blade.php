@@ -1,52 +1,39 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layout.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite('resources/js/app.js')
-
-</head>
-
-<body>
-
-    <main class="bg-light">
+@section('content')
+<main>
+    <div id="giumbotron">
+    </div>
+    <div id="content">
+        <h2 id="label">CURRENT SERIES</h2>
         <div class="container">
-            <div class="row">
-                @foreach ($comics as $comic)
-                <div class="carta">
-                    <div class="card" style="width: 18rem;">
-                        <a href="{{route('comics.show', ['comic' => $comic->id])}}"><img src="{{$comic->thumb}}" class="card-img-top" alt="..."></a>
+            @foreach ($comics as $comic)
+            <div class="carta">
+                <a href="{{route('comics.show', ['comic' => $comic->id])}}">
+                    <div>
+                        <img src="{{$comic['thumb']}}" alt="">
+                        <h6>{{$comic['series']}}</h6>
                         
-                        <div class="card-body">
-                            <h5 class="card-title">{{$comic->series}}</h5>
-                            <p class="card-text">{{$comic->description}}</p>
-                            <div>{{$comic->sale_date}} {{$comic->price}}</div>
-                            <div>{{$comic->type}}</div>
-                            <div>{{$comic->writers}}</div>
-                            <div>{{$comic->artists}}</div>
-                            <a href="{{route('comics.edit', $comic)}}">modifica</a>
-                            <form action="{{ route('comics.destroy', $comic)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit">elimina</button>
-                            </form>
-                            
-                        </div>
                     </div>
+                </a>
+                
+            </div>   
+            @endforeach    
+        </div> 
+        <div id="button">LOAD MORE</div> 
+    </div>
+    <div id="shop">
+        <div class="container">
+            @foreach ($menushop as $elem)
+            <div class="carta1">
+                
+                <div>
+                    <img src="{{$elem['img']}}" alt="">
+                    <div>{{$elem['nome']}}</div>
                 </div>
-                @endforeach
             </div>
+            @endforeach 
         </div>
-    </main>
-
-</body>
-
-</html>
+    </div>
+</main>
+@endsection

@@ -1,9 +1,331 @@
 @import '~bootstrap/scss/bootstrap';
 
-.carta{
-    width: 30%;
+#show-container{
+    height: 80%;
 }
 
-.row{
-    justify-content: space-between;
+a{
+    text-decoration: none;
+}
+
+#delete-button{
+    display: inline-block;
+}
+
+.edit-button{
+    background-color: #1480ED;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 190px;
+    color: white;
+    margin-top: 20px;
+}
+
+.one-card{
+    .box-left{
+        width: 35%;
+        img{
+            width: 100%;
+        }
+    }
+    .box-right{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        #button-show{
+            background-color: #1480ED;
+            padding: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
+            width: 130px;
+            display: inline-block;
+            a{
+                color: white;
+            }
+        }
+    }
+}
+
+#welcome-nav{
+    
+    a{
+        text-decoration: none;
+        color: white;
+        font-size: 40px;
+        &:hover{
+            color: #0282F9;
+        }
+    }
+}
+
+header{
+    text-align: center;
+    background-color: white;
+    color: black;
+    
+    .banner{
+        background-color: #1480ED;
+        height: 30px;
+        .container {
+            color: white;
+            font-weight: bold;
+            justify-content: flex-end;
+            padding-top: 5px;
+            display: flex;
+        }
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        
+        div{
+            img{
+                width: 80%;
+            }
+        }
+        nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            ul{
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                height: 100%;
+                li{
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    list-style-type: none;
+                    height: 100%;
+                    a{
+                        text-decoration: none;
+                        padding: 15px;
+                        color: black;
+                        &:hover{
+                            color: #1480ED; 
+                        }
+                    }
+                }
+            }
+        }
+        div{
+            input{
+                margin-bottom: 10px;
+            }
+        }
+    }       
+    
+}
+
+.carta{
+    width: calc(100% / 6 - 10px);
+    margin-bottom: 70px;
+    
+    div{
+        width: 183px;
+        height: 183px;
+        margin-bottom: 5px;
+        img{
+            width: 100%;
+            aspect-ratio: 1;
+            margin-bottom: 15px;
+        }
+        h6{
+            color: White;
+            &:hover{
+                color: #1480ED; 
+            }
+        }
+    } 
+}
+
+#giumbotron{
+    background-image: url('/img/jumbotron.jpg');
+    height: 500px;
+}
+#content{
+    position: relative;
+    #label{
+        position: absolute;
+        top: -20px;
+        left: 200px;
+        background-color: #1480ED;
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+   .container{
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    } 
+    #button{
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #1480ED;
+        padding: 10px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+main{
+    #content{
+        position: relative;
+        z-index: 99;
+        background-color: #1C1C1C;
+        color: white;
+        //height: 750px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 100px;
+        padding-bottom: 175px;
+    }
+    #shop{
+        position: relative;
+        z-index: 99;
+        background-color: #0282F9;
+        color: white;
+        height: 150px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        .container{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 50px;
+            .carta1{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 20%;
+                img{
+                    width: 20%;
+                    margin-right: 30px;
+                }
+                div{
+                    width: 90%;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+footer{
+    
+    #about{
+        background-image: url('/img/footer-bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px;
+        color: white;
+        display: flex;
+        align-items: center;
+        .container{
+            position: relative;
+            height: 80%;
+            .box{
+                position: relative;
+                height: 80%;
+                .col{
+                    display: flex;
+                    position: relative;
+                    .position{
+                        h2{
+                            font-size: 20px; 
+                            margin-bottom: 15px;   
+                        }
+                        
+                        ul{
+                            padding-left: 0;
+                            li{
+                                list-style-type: none;
+                                text-decoration: none; 
+                                font-size: 14px;
+                                margin-bottom: 7px;
+                                color: gray;
+                            }
+                        } 
+                    }
+                    div{
+                        margin-right: 40px;
+                        h2{
+                            font-size: 20px; 
+                            margin-bottom: 15px;   
+                        }
+                       
+                        ul{
+                            padding-left: 0;
+                            li{
+                                list-style-type: none;
+                                text-decoration: none; 
+                                font-size: 14px;
+                                margin-bottom: 7px;
+                                color: gray;
+                            }
+                        } 
+                    }
+                }
+            }   
+            img{
+                position: absolute;
+                right: 50px;
+                bottom: -80px;
+                z-index: 1;
+                width: 37%;
+            }
+        }
+    }
+    #links{
+        position: relative;
+        z-index: 99;
+        background-color: #303030;
+        color: white;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        
+        .container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            #button{
+                font-size: 20px;
+                border: 2px solid #1480ED;
+                padding: 10px;
+            }
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 30%;
+                strong{
+                    color: #1480ED;
+                    font-size: 20px;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.position{
+    position: absolute;
+    bottom: -20px;
 }

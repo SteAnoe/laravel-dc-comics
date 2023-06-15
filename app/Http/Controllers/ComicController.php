@@ -15,8 +15,11 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::All();
+        $menu = config('menulinks.menuLinks');
+        $footermenu = config('footerLinks.aboutList');
+        $menushop = config('menuShop.menuShop');
 
-        return view( 'pages.comics.index' , compact('comics') );
+        return view( 'pages.comics.index' , compact('comics' , 'menu' , 'footermenu' , 'menushop') );
     }
 
     /**
@@ -26,7 +29,10 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view( 'pages.comics.create' );
+        $menu = config('menulinks.menuLinks');
+        $footermenu = config('footerLinks.aboutList');
+        $menushop = config('menuShop.menuShop');
+        return view( 'pages.comics.create' , compact( 'menu' , 'footermenu' , 'menushop') );
     }
 
     /**
@@ -55,9 +61,11 @@ class ComicController extends Controller
     public function show($id)
     {
         $singoloComic = Comic::findOrFail($id);
+        $menu = config('menulinks.menuLinks');
+        $footermenu = config('footerLinks.aboutList');
+        $menushop = config('menuShop.menuShop');
 
-
-        return view('pages.comics.show', compact ('singoloComic') );
+        return view('pages.comics.show', compact ('singoloComic' , 'menu' , 'footermenu' , 'menushop') );
     }
 
     /**
@@ -68,7 +76,10 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        return view('pages.comics.edit', compact('comic'));
+        $menu = config('menulinks.menuLinks');
+        $footermenu = config('footerLinks.aboutList');
+        $menushop = config('menuShop.menuShop');
+        return view('pages.comics.edit', compact('comic' , 'menu' , 'footermenu' , 'menushop'));
     }
 
     /**

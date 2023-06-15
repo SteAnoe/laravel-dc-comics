@@ -1,32 +1,37 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.app')
 
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite('resources/js/app.js')
-
-</head>
-
-<body>
-
-    <main class="bg-light">
+@section('content')
+<main>
+    <div id="giumbotron">
+    </div>
+    <div id="content">
+        
         <div class="container">
-            <nav>
-                <a href="/">home</a>
-                <a href="/comics">comics</a>
+            <nav id="welcome-nav" class="justify-content-between w-100 text-center">
+                <div>
+                    <a href="/comics">Browse Comics</a>
+                </div>
+                <div>
+                    <a href="{{route('comics.create')}}">Create Comics</a>
+                </div>
+                
             </nav>
-
+        </div> 
+        
+    </div>
+    <div id="shop">
+        <div class="container">
+            @foreach ($menushop as $elem)
+            <div class="carta1">
+                
+                <div>
+                    <img src="{{$elem['img']}}" alt="">
+                    <div>{{$elem['nome']}}</div>
+                </div>
+            </div>
+            @endforeach 
         </div>
-    </main>
-
-</body>
-
-</html>
+    </div>
+</main>
+@endsection
