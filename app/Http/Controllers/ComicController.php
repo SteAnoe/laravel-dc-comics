@@ -43,13 +43,34 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $form_data = $request->all();
+        $request->validate(
+            [
+                'title' => 'required|max:50|unique:comics',
+                'description' => 'required',
+                'price' => 'required',
+                'type' => 'required',
+                'sale_date' => 'required',
+                'thumb' => 'required'
+            ],
+            [
+                'title.required' => 'Il campo Title è obbligatorio',
+                'title.max' => 'Il campo Title non deve superare i 50 caratteri',
+                'title.unique' => 'Il Title scelto deve essere unico',
+                'description' => 'Il campo Description è obbligatorio',
+                'price' => 'Il campo Price è obbligatorio',
+                'type' => 'Il campo Type è obbligatorio',
+                'sale_date' => 'Il campo Sale Date è obbligatorio',
+                'thumb' => 'Il campo Thumb è obbligatorio'
+            ]
+        );
 
+
+        $form_data = $request->all();
         $newComic = new Comic();
         $newComic->fill($form_data);
         $newComic->save();
 
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('success-create', 'Complimenti hai creato un fumetto');
     }
 
     /**
@@ -76,6 +97,9 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
+
+        
+
         $menu = config('menulinks.menuLinks');
         $footermenu = config('footerLinks.aboutList');
         $menushop = config('menuShop.menuShop');
@@ -91,9 +115,30 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $request->validate(
+            [
+                'title' => 'required|max:50|unique:comics',
+                'description' => 'required',
+                'price' => 'required',
+                'type' => 'required',
+                'sale_date' => 'required',
+                'thumb' => 'required'
+            ],
+            [
+                'title.required' => 'Il campo Title è obbligatorio',
+                'title.max' => 'Il campo Title non deve superare i 50 caratteri',
+                'title.unique' => 'Il Title scelto deve essere unico',
+                'description' => 'Il campo Description è obbligatorio',
+                'price' => 'Il campo Price è obbligatorio',
+                'type' => 'Il campo Type è obbligatorio',
+                'sale_date' => 'Il campo Sale Date è obbligatorio',
+                'thumb' => 'Il campo Thumb è obbligatorio'
+            ]
+        );
+
         $form_data = $request->all();
         $comic->update($form_data);
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('success-edit', 'Complimenti hai modificato un fumetto');;
     }
 
     /**
@@ -105,6 +150,6 @@ class ComicController extends Controller
     public function destroy(Comic $comic)
     {
         $comic->delete();
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('success-delete', 'Complimenti hai cancellato un fumetto');;
     }
 }

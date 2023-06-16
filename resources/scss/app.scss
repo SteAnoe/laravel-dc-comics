@@ -48,6 +48,15 @@ a{
     }
 }
 
+.alert-success{
+    position: absolute;
+    left: 50%;
+    top: 70px;
+    transform: translateX(-50%);
+    
+    font-weight: bold;
+}
+
 #welcome-nav{
     
     a{
@@ -188,7 +197,7 @@ main{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 100px;
+        padding-top: 200px;
         padding-bottom: 175px;
     }
     #shop{

@@ -10,6 +10,15 @@
     <div id="content">
         <h2 id="label"><a class="text-white" href="/comics">BACK TO CURRENT SERIES</a></h2>
         <div class="container">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form class="w-100" action="{{route('comics.store')}}" method="POST">
                 @csrf
 
